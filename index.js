@@ -64,7 +64,7 @@ NOTE: This will be a callback function for the tasks below
 */
 
 function inning(){
-    return Math.floor(Math.random());
+    return Math.floor(Math.random() * 3);
 }
 
 
@@ -82,12 +82,14 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(inning, number){
+function finalScore(inningCB, inning, number){
   let Home = 0;
   let Away = 0;
-  return function (){
-    score++;
-  }
+  for (let i = 0; i < inning; i++){
+    Home = Home + inningCB();
+    Away = Away + inningCB();
+    }
+    return {Home, Away};
 }
 
 
