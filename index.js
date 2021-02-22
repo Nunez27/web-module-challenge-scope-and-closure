@@ -28,11 +28,12 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   Study the code for counter1 and counter2, then answer the questions below.
   
   1. What is the difference between counter1 and counter2?
-  
+  Counter 1 is functioned scoped while counter 2 is global scope
   2. Which of the two uses a closure? How can you tell?
-  
+    Counter 1 uses closure becuase it has another function nested into it.
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     Counter 1 is perferable code and it is better practice as a developer, counter 2 is bad practice as a developer
 */
 
 // counter1 code
@@ -62,8 +63,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return Math.floor(Math.random());
 }
 
 
@@ -81,9 +82,14 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning, number){
+  let Home = 0;
+  let Away = 0;
+  return function (){
+    score++;
+  }
 }
+
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
