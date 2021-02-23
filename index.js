@@ -155,7 +155,7 @@ function scoreboard(getInningScore /*Task 4*/, inningCB /*Task 2*/, number) {
    let currentInning = getInningScore(inningCB)
    homeScore = homeScore + currentInning.Home
    awayScore = awayScore + currentInning.Away
-   newArray.push(`inning ${i}: Away ${currentInning.Away} - Home ${currentInning.Home},`);
+   newArray.push(`inning ${i + 1}: Away ${currentInning.Away} - Home ${currentInning.Home},`);
   }
   if (homeScore === awayScore){
     return newArray.push(`This game will require extra innings: Away ${awayScore} - Home ${homeScore}`);
