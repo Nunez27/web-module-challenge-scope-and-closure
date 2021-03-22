@@ -62,9 +62,11 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(number){
-    return Math.floor(Math.random(number));
+function inning(){
+  let runs = [0,1,2]
+  return runs[Math.floor(Math.random() * runs.length)]
 }
+console.log(inning());
 
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
@@ -91,7 +93,7 @@ function finalScore(callback, number){
   return {Home, Away}
   // {Home: Home, Away: Away}
 }
-// console.log(finalScore(inning, 5));
+console.log(finalScore(inning, 9));
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
@@ -99,12 +101,9 @@ Use the getInningScore() function below to do the following:
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
 function getInningScore(callback) {
-  let homeTeam = callback();
-  let awayTeam = callback();
-  return {Home: homeTeam, Away: awayTeam}
+  return {Home: callback(), Away:  callback()}
 }
-
-
+console.log(getInningScore(inning));
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
 Use the scoreboard function below to do the following:
   1. Receive the callback function `getInningScore` from Task 4
@@ -146,9 +145,25 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScoreCb, inningCb, number) {
+  let newArray = [];
+  let homeScore = 0;
+  let awayScore = 0;
+  for (let i = 0; i < number; i++) {
+    let currentInning = getInningScoreCb(inningCb)
+    homeScore += currentInning.Home
+    awayScore += currentInning.Away
+    newArray.push(`Inning ${i}: Away ${currentInning.Away} - Home ${currentInning.Home}`);
+  } 
+  if (homeScore === awayScore) {
+    newArray.push(`This game will require extra innings: Away ${awayScore} - Home ${homeScore}`);
+  }else {
+    newArray.push(`Final Score: Away ${awayScore} - Home ${homeScore}`);
+  }
+  return newArray
 }
+console.log(scoreboard(getInningScore, inning, 8));
+
 
 
 
