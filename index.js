@@ -26,13 +26,13 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
 /*Task 1: counterMaker()
   
   Study the code for counter1 and counter2, then answer the questions below.
-  
   1. What is the difference between counter1 and counter2?
-  
+  Counter 1 is function/Local scoped meaning anything that exist inside the {} cannot be accessed outside. Counter 2 is global scoped
   2. Which of the two uses a closure? How can you tell?
-  
+  Counter 1 uses a closure because it has a nested function inside
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+     Both ways are fine. Some companies like to declare their variables at the top then have the functions listed at the bottom. But counter 1 is more preferable because it is easier to read and not get confused.
 */
 
 // counter1 code
@@ -62,8 +62,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(number){
+    return Math.floor(Math.random(number));
 }
 
 
@@ -81,7 +81,7 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(callback, inningsPlayed){
   /*Code Here*/
 }
 
